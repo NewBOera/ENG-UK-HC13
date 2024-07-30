@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- ! Tailwind config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+
+              }
+            }
+          }
+        }
+    </script>
+    <script defer src="./scripts/main.js"></script>
+    <script defer src="./scripts/form-secure.js"></script>
+    <script defer src="./scripts/notify.js"></script>
+    <script defer src="./scripts/navbar.js"></script>
+    <script defer src="./scripts/dynamic-domain.js"></script>
+    <script defer src="./scripts/modals.js"></script>
+
+    <link rel="stylesheet" href="styles/notify.css">
+    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    
+    <!-- ? Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ? navbar mobile -->
+    <header class="flex justify-center md:hidden fixed z-50 w-screen">
+      <nav class="flex w-full px-4 sm:px-8 sm:w-[640px] justify-between h-[80px] md:hidden">
+        <div class="text-lg flex gap-4 items-center text-white">
+          <a href="#contact-section">
+            <img class="object-contain w-8" src="./assets/Desktop/logo.png" alt="Logo">
+          </a>
+          <span class="dyn-name font-semibold"></span>
+        </div>
+        <img onclick="toggleMenu()" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iNDgiIGQ9Ik04OCAxNTJoMzM2TTg4IDI1NmgzMzZNODggMzYwaDMzNiIvPjwvc3ZnPg==" alt="Menu Icon" class="menu-icon" id="menu-icon">
+      </nav>
+      <div class="menu-container bg-[#00000055]" id="menu-container">
+          <div class="p-5">
+              <button onclick="toggleMenu()" class="close-btn" id="close-btn">&times;</button>
+          </div>
+          <ul class="text-textPrimary">
+            <li onclick="toggleMenu()"><a href="#home-section">Home</a></li>
+            <li onclick="toggleMenu()"><a href="#about-section">About us</a></li>
+            <li onclick="toggleMenu()"><a href="#destinations-section">Destinations</a></li>
+            <li onclick="toggleMenu()"><a href="#perks-section">Perks</a></li>
+            <li onclick="toggleMenu()"><a href="#tips-section">Tips</a></li>
+            <li onclick="toggleMenu()"><a href="#contact-section">Get in touch</a></li>
+          </ul>
+      </div>
+    </header>
+
+    <!-- ? Header section desktop-->
+    <header class="hidden bg-primary justify-center md:flex fixed z-50 w-screen">
+      <nav class="flex w-full justify-between sm:px-8 lg:px-10 h-[80px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+        <div class="flex items-center gap-10">
+          <div class="font-normal text-lg flex items-center gap-4">
+            <a href="#contact-section"><img class="object-contain w-10" src="./assets/Desktop/logo.png" alt="Logo"></a>
+            <span class="dyn-name text-xl"></span>
+          </div>
+          
+          <ul class="font-semibold text-accent flex gap-6">
+            <li><a href="#home-section">Home</a></li>
+            <li><a href="#advantages-section">Advantages</a></li>
+            <li><a href="#hotels-section">Hotels</a></li>
+            <li><a href="#about-section">About</a></li>
+          </ul>
+        </div>
+
+        <div class="flex grow basis-0 justify-end">
+          <a href="#ref-form-desktop">
+            <button class="bg-white border-[1px] border-accent rounded-3xl py-2 px-5 hover:scale-105 transition-all duration-300">Kontakt</button>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="py-8 px-4">
+        <!-- ? Hero section -->
+        <section id="home-section" class="flex justify-center">
+          <div class="flex flex-col h-[full] lg:mt-[80px] px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:flex-row sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+
+          </div>
+        </section>
+
+        <section id="home-section" class="flex justify-center">
+          <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:flex-row sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+
+          </div>
+        </section>
+        
+        <section id="home-section" class="flex justify-center">
+          <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:flex-row sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+
+          </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+     <!-- ! Modals -->
+    <!-- ? Terms and Conditions Modal -->
+    <section id="terms-modal" class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden">
+      <div class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen">
+        <div class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md">
+          <div class="relative flex items-end">
+            <img
+              class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+              onclick="clickModal('terms-modal')"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+              alt=""
+            />
+            <div class="bg-primarybg w-full">
+              <h2 class="text-base text-center p-4 font-bold text-white w-full">
+                Terms and Conditions
+              </h2>
+            </div>
+          </div>
+
+          <article class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4">
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ? Privacy Policy Modal -->
+    <section id="privacy-modal" class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden">
+      <div class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen">
+        <div class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md">
+          <div class="relative flex items-end">
+            <img
+              class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+              onclick="clickModal('privacy-modal')"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+              alt=""
+            />
+            <div class="bg-primarybg w-full">
+              <h2 class="text-base text-center p-4 font-bold text-white w-full">
+                Privacy Policy
+              </h2>
+            </div>
+          </div>
+
+          <article class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4">
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ? Cookies Modal -->
+    <section id="cookies-modal" class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden">
+      <div class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen">
+        <div class="bg-white shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] h-auto max-h-54 rounded-md">
+          <div class="relative flex items-end">
+            <img
+              class="hover:cursor-pointer absolute top-0 right-0 w-7 m-4 rounded-xs"
+              onclick="clickModal('cookies-modal')"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRUZFRkVGIiBkPSJNMTkgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yVjVhMiAyIDAgMCAwLTItMm0tMy40IDE0TDEyIDEzLjRMOC40IDE3TDcgMTUuNmwzLjYtMy42TDcgOC40TDguNCA3bDMuNiAzLjZMMTUuNiA3TDE3IDguNEwxMy40IDEybDMuNiAzLjZ6Ii8+PC9zdmc+"
+              alt=""
+            />
+            <div class="bg-primarybg w-full">
+              <h2 class="text-base text-center p-4 font-bold text-white w-full">
+                Cookie Policy
+              </h2>
+            </div>
+          </div>
+
+          <article class="overflow-y-auto overflow-x-hidden h-96 p-5 text-xs flex flex-col gap-4">
+
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ? Contact Modal -->
+    <section id="contact-modal" class="bg-[#00000088] font-[Inter] flex items-center justify-center min-h-screen absolute z-50 hidden">
+      <div class="fixed inset-0 w-full bg-[#00000088] flex items-center justify-center max-h-screen">
+        <div class="bg-purplePrimary overflow-y-auto overflow overflow-x-hidden h-[600px] xl:h-[800px] lg:max-h-[800px] relative px-10 py-12 flex flex-col gap-10 rounded-xl shadow-lg w-11/12 sm:w-8/12 lg:max-w-[600px] rounded-md">
+          <button class="absolute top-0 right-0 m-5" onclick="clickModal('contact-modal')">
+            <img class="w-6" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMiAxMmMwIDUuNTIzLTQuNDc3IDEwLTEwIDEwUzIgMTcuNTIzIDIgMTJTNi40NzcgMiAxMiAyczEwIDQuNDc3IDEwIDEwTTguOTcgOC45N2EuNzUuNzUgMCAwIDEgMS4wNiAwTDEyIDEwLjk0bDEuOTctMS45N2EuNzUuNzUgMCAwIDEgMS4wNiAxLjA2TDEzLjA2IDEybDEuOTcgMS45N2EuNzUuNzUgMCAwIDEtMS4wNiAxLjA2TDEyIDEzLjA2bC0xLjk3IDEuOTdhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNkwxMC45NCAxMmwtMS45Ny0xLjk3YS43NS43NSAwIDAgMSAwLTEuMDYiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="Close">
+          </button>
+          <article class="flex flex-col items-center gap-6 lg:flex-row">
+            <div class="flex flex-col gap-4">
+              <h2 class="text-4xl font-extrabold lg:text-5xl text-white">
+                We will be happy to solve your doubts!
+              </h2>
+              <p class="text-white">
+                At <span class="dyn-name"></span> we want to provide not only the 
+                best options, but also the best customer services we 
+                can perform. In order to do that, we will be happy to 
+                help you at any of our contact channels. Let us know 
+                what you need to start working on it.
+              </p>
+            </div>
+
+          </article>
+
+          <form id="support-form" action="" class="rounded-lg py-4 px-5 flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+              <span class="text-white">Name *</span>
+              <input class="rounded-md border-[1px] border-[#E9F4FF] px-4 py-1" placeholder="Your name here" type="text" name="name" id="name-contact">
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-white">Last name *</span>
+              <input class="rounded-md border-[1px] border-[#E9F4FF] px-4 py-1" placeholder="Your last name here" type="text" name="lastname" id="name-contact">
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-white">Email *</span>
+              <input class="rounded-md border-[1px] border-[#E9F4FF] px-4 py-1" placeholder="Your email here" type="email" name="email" id="name-contact">
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-white">Telephone *</span>
+              <input class="rounded-md border-[1px] border-[#E9F4FF] px-4 py-1" placeholder="Your telephone here" type="tel" name="phone" id="name-contact">
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-white">Message *</span>
+              <textarea class="rounded-md border-[1px] border-[#E9F4FF] px-4 py-1" name="" id="" rows="3" placeholder="Your message here"></textarea>
+            </div>
+
+            <div>
+              <button class="bg-white flex items-center gap-6 rounded-full py-2 px-10 hover:scale-95 transition-all duration-200" onclick="sendContactForm('support-form')">
+                <span class="text-sm font-semibold">Send Message</span>
+              </button>
+            </div>
+          </form>
+          
+            <article class="flex text-white">
+              <ul class="flex flex-col gap-6">
+                  <li class="flex gap-3">
+                    <img class="w-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNCAyMXEtLjgyNSAwLTEuNDEyLS41ODdUMiAxOXYtNGg3djJoNnYtMmg3djRxMCAuODI1LS41ODcgMS40MTNUMjAgMjF6bTctNnYtMmgydjJ6bS05LTJWOHEwLS44MjUuNTg4LTEuNDEyVDQgNmg0VjRxMC0uODI1LjU4OC0xLjQxMlQxMCAyaDRxLjgyNSAwIDEuNDEzLjU4OFQxNiA0djJoNHEuODI1IDAgMS40MTMuNTg4VDIyIDh2NWgtN3YtMkg5djJ6bTgtN2g0VjRoLTR6Ii8+PC9zdmc+" alt="Company">
+                    <span class="font-semibold">Company name:</span> <span class="dyn-name"></span>
+                  </li>
+                  <li class="flex gap-3">
+                    <img class="w-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTcuNjU3IDUuMzA0Yy0zLjEyNC0zLjA3My04LjE4OS0zLjA3My0xMS4zMTMgMGE3Ljc4IDcuNzggMCAwIDAgMCAxMS4xM0wxMiAyMS45OTlsNS42NTctNS41NjVhNy43OCA3Ljc4IDAgMCAwIDAtMTEuMTNNMTIgMTMuNDk5Yy0uNjY4IDAtMS4yOTUtLjI2LTEuNzY4LS43MzJhMi41MDMgMi41MDMgMCAwIDEgMC0zLjUzNmMuNDcyLS40NzIgMS4xLS43MzIgMS43NjgtLjczMnMxLjI5Ni4yNiAxLjc2OC43MzJhMi41MDMgMi41MDMgMCAwIDEgMCAzLjUzNmMtLjQ3Mi40NzItMS4xLjczMi0xLjc2OC43MzIiLz48L3N2Zz4=" alt="Location">
+                    <span class="font-semibold">Address:</span> lorem ipsum
+                  </li>
+                  <li class="flex gap-3">
+                    <img class="w-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNi42MiAxMC43OWMxLjQ0IDIuODMgMy43NiA1LjE1IDYuNTkgNi41OWwyLjItMi4yYy4yOC0uMjguNjctLjM2IDEuMDItLjI1YzEuMTIuMzcgMi4zMi41NyAzLjU3LjU3YTEgMSAwIDAgMSAxIDFWMjBhMSAxIDAgMCAxLTEgMUExNyAxNyAwIDAgMSAzIDRhMSAxIDAgMCAxIDEtMWgzLjVhMSAxIDAgMCAxIDEgMWMwIDEuMjUuMiAyLjQ1LjU3IDMuNTdjLjExLjM1LjAzLjc0LS4yNSAxLjAyeiIvPjwvc3ZnPg==" alt="Phone">
+                    <span class="font-semibold">Phone Number:</span> lorem ipsum
+                  </li>
+                  <li class="flex gap-3">
+                    <img class="w-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJtMjAgOGwtOCA1bC04LTVWNmw4IDVsOC01bTAtMkg0Yy0xLjExIDAtMiAuODktMiAydjEyYTIgMiAwIDAgMCAyIDJoMTZhMiAyIDAgMCAwIDItMlY2YTIgMiAwIDAgMC0yLTIiLz48L3N2Zz4=" alt="Email">
+                    <span class="font-semibold">Email:</span><span class="dyn-email"></span>
+                  </li>
+              </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
