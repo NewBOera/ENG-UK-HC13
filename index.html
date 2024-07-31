@@ -11,7 +11,8 @@
           theme: {
             extend: {
               colors: {
-
+                greenPrimary: '#25D366',
+                blackPrimary: '#181818'
               }
             }
           }
@@ -23,10 +24,15 @@
     <script defer src="./scripts/navbar.js"></script>
     <script defer src="./scripts/dynamic-domain.js"></script>
     <script defer src="./scripts/modals.js"></script>
+    <script defer src="./scripts/quote-hotel/dates.js"></script>
+    <script defer src="./scripts/quote-hotel/guests.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <link rel="stylesheet" href="styles/notify.css">
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/quote-hotel/guests.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
     <!-- ? Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,75 +42,496 @@
 </head>
 <body>
     <!-- ? navbar mobile -->
-    <header class="flex justify-center md:hidden fixed z-50 w-screen">
-      <nav class="flex w-full px-4 sm:px-8 sm:w-[640px] justify-between h-[80px] md:hidden">
+    <header class="flex justify-center md:hidden fixed z-50 w-screen p-4">
+      <nav class="flex w-full px-4 sm:px-8 sm:w-[640px] md:w-[768px] justify-between h-[80px] rounded-xl bg-blackPrimary md:hidden">
         <div class="text-lg flex gap-4 items-center text-white">
           <a href="#contact-section">
             <img class="object-contain w-8" src="./assets/Desktop/logo.png" alt="Logo">
           </a>
           <span class="dyn-name font-semibold"></span>
         </div>
-        <img onclick="toggleMenu()" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iNDgiIGQ9Ik04OCAxNTJoMzM2TTg4IDI1NmgzMzZNODggMzYwaDMzNiIvPjwvc3ZnPg==" alt="Menu Icon" class="menu-icon" id="menu-icon">
+        <img onclick="toggleMenu()" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yIDhhMSAxIDAgMCAxIDEtMWgxMC4zMDhhMSAxIDAgMSAxIDAgMkgzYTEgMSAwIDAgMS0xLTFtMC00YTEgMSAwIDAgMSAxLTFoMTRhMSAxIDAgMSAxIDAgMkgzYTEgMSAwIDAgMS0xLTFtMCA4YTEgMSAwIDAgMSAxLTFoMTRhMSAxIDAgMSAxIDAgMkgzYTEgMSAwIDAgMS0xLTFtMCA0YTEgMSAwIDAgMSAxLTFoMTAuMzA4YTEgMSAwIDEgMSAwIDJIM2ExIDEgMCAwIDEtMS0xIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=" alt="Menu Icon" class="menu-icon" id="menu-icon">
       </nav>
-      <div class="menu-container bg-[#00000055]" id="menu-container">
+      <div class="menu-container bg-greenPrimary" id="menu-container">
           <div class="p-5">
-              <button onclick="toggleMenu()" class="close-btn" id="close-btn">&times;</button>
+              <button onclick="toggleMenu()" class="close-btn" id="close-btn">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMDAwMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMiAxMmMwIDUuNTIzLTQuNDc3IDEwLTEwIDEwUzIgMTcuNTIzIDIgMTJTNi40NzcgMiAxMiAyczEwIDQuNDc3IDEwIDEwTTguOTcgOC45N2EuNzUuNzUgMCAwIDEgMS4wNiAwTDEyIDEwLjk0bDEuOTctMS45N2EuNzUuNzUgMCAwIDEgMS4wNiAxLjA2TDEzLjA2IDEybDEuOTcgMS45N2EuNzUuNzUgMCAwIDEtMS4wNiAxLjA2TDEyIDEzLjA2bC0xLjk3IDEuOTdhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNkwxMC45NCAxMmwtMS45Ny0xLjk3YS43NS43NSAwIDAgMSAwLTEuMDYiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="Close icon">
+              </button>
           </div>
-          <ul class="text-textPrimary">
+          <ul class="text-blackPrimary font-medium">
             <li onclick="toggleMenu()"><a href="#home-section">Home</a></li>
             <li onclick="toggleMenu()"><a href="#about-section">About us</a></li>
-            <li onclick="toggleMenu()"><a href="#destinations-section">Destinations</a></li>
+            <li onclick="toggleMenu()"><a href="#Hotels-section">Destinations</a></li>
             <li onclick="toggleMenu()"><a href="#perks-section">Perks</a></li>
-            <li onclick="toggleMenu()"><a href="#tips-section">Tips</a></li>
+            <li onclick="toggleMenu()"><a href="#testimonials-section">Testimonials</a></li>
             <li onclick="toggleMenu()"><a href="#contact-section">Get in touch</a></li>
           </ul>
       </div>
     </header>
 
     <!-- ? Header section desktop-->
-    <header class="hidden bg-primary justify-center md:flex fixed z-50 w-screen">
-      <nav class="flex w-full justify-between sm:px-8 lg:px-10 h-[80px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
-        <div class="flex items-center gap-10">
-          <div class="font-normal text-lg flex items-center gap-4">
+    <header class="hidden bg-primary justify-center md:flex fixed z-50 w-screen p-4">
+      <nav class="flex w-full justify-between rounded-xl bg-blackPrimary sm:px-8 lg:px-10 h-[80px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+        <div class="flex items-center grow basis-0 gap-10">
+          <div class="font-normal text-lg text-white flex items-center gap-4">
             <a href="#contact-section"><img class="object-contain w-10" src="./assets/Desktop/logo.png" alt="Logo"></a>
             <span class="dyn-name text-xl"></span>
           </div>
           
-          <ul class="font-semibold text-accent flex gap-6">
-            <li><a href="#home-section">Home</a></li>
-            <li><a href="#advantages-section">Advantages</a></li>
-            <li><a href="#hotels-section">Hotels</a></li>
-            <li><a href="#about-section">About</a></li>
-          </ul>
         </div>
+        
+        <ul class="font-medium text-accent flex gap-8 xl:gap-12 text-white">
+          <li><a href="#home-section">Home</a></li>
+          <li><a href="#about-section">About</a></li>
+          <li><a href="#hotels-section">Hotels</a></li>
+          <li><a href="#benefits-section">Benefits</a></li>
+          <li class="hidden xl:block"><a href="#facts-section">Interesting facts</a></li>
+        </ul>
 
         <div class="flex grow basis-0 justify-end">
           <a href="#ref-form-desktop">
-            <button class="bg-white border-[1px] border-accent rounded-3xl py-2 px-5 hover:scale-105 transition-all duration-300">Kontakt</button>
+            <button class="bg-greenPrimary font-medium rounded-xl py-2 px-5 hover:scale-105 transition-all duration-300">Contact</button>
           </a>
         </div>
       </nav>
     </header>
 
-    <main class="py-8 px-4">
-        <!-- ? Hero section -->
+    <main>
+        <!-- ? Home section -->
         <section id="home-section" class="flex justify-center">
-          <div class="flex flex-col h-[full] lg:mt-[80px] px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:flex-row sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+          <div class="flex flex-col h-[full] pt-[112px] sm:pt-[132px] lg:pt-[150px] 2xl:pt-[80px] px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 sm:flex-col-reverse lg:flex-row-reverse sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+            <article class="lg:w-6/12 flex justify-center items-center h-full">
+              <img class="sm:max-w-[500px] lg:max-w-[450px] xl:max-w-[550px] 2xl:max-w-[600px] object-contain shadow-hero-image h-max" src="./assets/Desktop/HERO+Modal/heroImg.jpg" alt="Animated woman traveling">
+            </article>
 
+            <article class="flex flex-col gap-4 lg:w-6/12 lg:gap-8 lg:justify-center">
+              <h1 class="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+                Discover the elite casino hotels in the UK
+              </h1>
+
+              <p class="lg:text-lg">
+                Step into ultimate luxury and excitement: explore the finest casino hotels with top shelf liquors, gourmet dining, and exceptional room service.
+              </p>
+
+              <div>
+                <a href="#contact-section">
+                  <button class="bg-greenPrimary font-semibold rounded-lg py-3 px-10 hover:scale-95 transition-all duration-200">
+                    Explore now
+                  </button>
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
-        <section id="home-section" class="flex justify-center">
-          <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:flex-row sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+        <!-- ? Hotels section -->
+        <section id="hotels-section" class="flex justify-center py-14">
+          <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+            <article class="flex flex-col gap-3">
+              <h2 class="font-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-6xl md:text-center">
+                Handpicked <span class="text-greenPrimary">luxury</span> casino hotels
+              </h2>
+              <p class="font-medium text-xl md:text-2xl lg:text-3xl md:text-center">
+                Indulge in premier destinations and exclusive offers
+              </p>
+            </article>
 
+            <div class="flex justify-center flex-wrap gap-12 lg:gap-20">
+              <article class="h-[400px] lg:h-[500px] w-[280px]">
+                <div class="h-[40%]">
+                  <img class="h-full w-full object-cover" src="./assets/Desktop/DESTINATIONS-SUPPORT/hotel1.webp" alt="DoubleTree">
+                </div>
+                <div class="h-[50%] flex flex-col justify-center gap-4 px-3">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-xs font-semibold">
+                      Official rating
+                    </span>
+                    <div class="flex gap-1 items-center">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-1">
+                    <h5 class="text-greenPrimary font-semibold text-xl">
+                      DoubleTree
+                    </h5>
+                    <p class="text-sm lg:text-base">
+                      London Casino based on the toDoubleTree by Hilton 
+                      Coventry Building Society Arena is a 4.0-star 
+                      pet-friendly hotel in Coventry, with easy access 
+                      to the convention center and casino. 
+                    </p>
+                  </div>
+                </div>
+
+                <div class="h-[10%]">
+                  <a href="https://www.expedia.mx/Birmingham-Hoteles-DoubleTree-By-Hilton-Coventry-Building-Society-Arena.h12480646.Informacion-Hotel?chkin=2024-07-04&chkout=2024-07-07&x_pwa=1&rfrr=HSR&pwa_ts=1720026824719&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5teC9Ib3RlbC1TZWFyY2g%3D&useRewards=false&rm1=a2&regionId=190&destination=Reino%20Unido&destType=MARKET&latLong=51.507322%2C-0.127647&amenities=CASINO&sort=RECOMMENDED&top_dp=2157&top_cur=MXN&affcid=MX.DIRECT.PHG.1100l357437.0&afflid=1100lyE937LQ&userIntent=&selectedRoomType=201335335&selectedRatePlan=284050520&searchId=42142fff-86c7-400f-92dc-67879e016ebb&propertyName=DoubleTree%20by%20Hilton%20Coventry%20Building%20Society%20Arena&siteid=12&langid=2058&clickref=1100lyKkJbsZ&ref_id=1100lyKkJbsZ&my_ad=AFF.MX.DIRECT.PHG.1100l357437.1101l87520">
+                    <button class="rounded-full w-full border-[1px] border-[#00000088] py-2 px-10 font-semibold hover:bg-greenPrimary hover:border-none transition-all duration-200">
+                      Book now
+                    </button>
+                  </a>
+                </div>
+              </article>
+
+              <article class="h-[400px] lg:h-[500px] w-[280px]">
+                <div class="h-[40%]">
+                  <img class="h-full w-full object-cover" src="./assets/Desktop/DESTINATIONS-SUPPORT/hotel2.webp" alt="Prestige Plaza">
+                </div>
+                <div class="h-[50%] flex flex-col justify-center gap-4 px-3">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-xs font-semibold">
+                      Official rating
+                    </span>
+                    <div class="flex gap-1 items-center">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-1">
+                    <h5 class="text-greenPrimary font-semibold text-xl">
+                      Prestige Plaza
+                    </h5>
+                    <p class="text-sm lg:text-base">
+                      Prestige Plaza Hotel is a 2.5-star hotel in Blackpool, 
+                      near Winter Gardens and Blackpool Tower. It features a 
+                      casino, meeting rooms, and paid parking. 
+                    </p>
+                  </div>
+                </div>
+
+                <div class="h-[10%]">
+                  <a href="https://www.expedia.mx/Blackpool-Hoteles-Parin-Hotel.h88328202.Informacion-Hotel?chkin=2024-07-04&chkout=2024-07-07&x_pwa=1&rfrr=HSR&pwa_ts=1720026824719&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5teC9Ib3RlbC1TZWFyY2g%3D&useRewards=false&rm1=a2&regionId=190&destination=Reino%20Unido&destType=MARKET&neighborhoodId=6341891&latLong=51.507322%2C-0.127647&amenities=CASINO&sort=RECOMMENDED&top_dp=2028&top_cur=MXN&affcid=MX.DIRECT.PHG.1100l357437.0&afflid=1100lyE937LQ&userIntent=&selectedRoomType=321463075&selectedRatePlan=391478027&searchId=42142fff-86c7-400f-92dc-67879e016ebb&propertyName=Prestige%20Plaza%20Hotel&siteid=12&langid=2058&clickref=1100lyKi4FPt&ref_id=1100lyKi4FPt&my_ad=AFF.MX.DIRECT.PHG.1100l357437.1101l87520" target="_blank">
+                    <button class="rounded-full w-full border-[1px] border-[#00000088] py-2 px-10 font-semibold hover:bg-greenPrimary hover:border-none transition-all duration-200">
+                      Book now
+                    </button>
+                  </a>
+                </div>
+              </article>
+
+              <article class="h-[400px] lg:h-[500px] w-[280px]">
+                <div class="h-[40%]">
+                  <img class="h-full w-full object-cover" src="./assets/Desktop/DESTINATIONS-SUPPORT/hotel3.webp" alt="Zedwell Piccadilly Circus">
+                </div>
+                <div class="h-[50%] flex flex-col justify-center gap-4 px-3">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-xs font-semibold">
+                      Official rating
+                    </span>
+                    <div class="flex gap-1 items-center">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-1">
+                    <h5 class="text-greenPrimary font-semibold text-xl">
+                      Zedwell Piccadilly Circus (Close to Casino)
+                    </h5>
+                    <p class="text-sm lg:text-base">
+                      Zedwell Piccadilly Circus, centrally located 
+                      in London, offers soundproofed rooms with 
+                      free Wi-Fi and air conditioning. 
+                    </p>
+                  </div>
+                </div>
+
+                <div class="h-[10%]">
+                  <a href="https://www.expedia.mx/London-Hoteles-Zedwell-Piccadilly-Trocadero.h42297074.Informacion-Hotel?chkin=2024-07-04&chkout=2024-07-07&x_pwa=1&rfrr=HSR&pwa_ts=1720029812148&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5teC9Ib3RlbC1TZWFyY2g%3D&useRewards=true&rm1=a1&regionId=190&destination=Reino+Unido&destType=MARKET&neighborhoodId=6144914&latLong=51.507322%2C-0.127647&hotelName=victoria+gate&amenities=CASINO&sort=RECOMMENDED&top_dp=4224&top_cur=MXN&userIntent=&selectedRoomType=315646345&selectedRatePlan=384270544&searchId=6280c77f-670f-4d0d-9e35-bdaac4e8cdd7&propertyName=Zedwell+Piccadilly+Circus&siteid=12&langid=2058&clickref=1100lyJbVHTK&affcid=MX.DIRECT.PHG.1100l357437.1101l87520&ref_id=1100lyJbVHTK&my_ad=AFF.MX.DIRECT.PHG.1100l357437.1101l87520&afflid=1100lyJbVHTK" target="_blank">
+                    <button class="rounded-full w-full border-[1px] border-[#00000088] py-2 px-10 font-semibold hover:bg-greenPrimary hover:border-none transition-all duration-200">
+                      Book now
+                    </button>
+                  </a>
+                </div>
+              </article>
+
+              <article class="h-[400px] lg:h-[500px] w-[280px]">
+                <div class="h-[40%]">
+                  <img class="h-full w-full object-cover" src="./assets/Desktop/DESTINATIONS-SUPPORT/hotel4.webp" alt="St Giles">
+                </div>
+                <div class="h-[50%] flex flex-col justify-center gap-4 px-3">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-xs font-semibold">
+                      Official rating
+                    </span>
+                    <div class="flex gap-1 items-center">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-1">
+                    <h5 class="text-greenPrimary font-semibold text-xl">
+                      St Giles
+                    </h5>
+                    <p class="text-sm lg:text-base">
+                      St Giles Hotel - London is a 3-star property with 
+                      3 restaurants steps away from Tottenham Court Road. 
+                      It boasts a 24-hour reception, free WiFi, and cleaning services. 
+                    </p>
+                  </div>
+                </div>
+
+                <div class="h-[10%]">
+                  <a href="https://www.expedia.mx/London-Hoteles-St-Giles-Hotel-London.h614.Informacion-Hotel?chkin=2024-07-04&chkout=2024-07-07&x_pwa=1&rfrr=HSR&pwa_ts=1720031054418&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5teC9Ib3RlbC1TZWFyY2g%3D&useRewards=true&rm1=a1&regionId=190&destination=Reino+Unido&destType=MARKET&neighborhoodId=6144889&selected=614&latLong=51.507322%2C-0.127647&hotelName=St+Giles+Hotel+-+London&amenities=CASINO&sort=RECOMMENDED&top_dp=3934&top_cur=MXN&userIntent=&selectedRoomType=324534860&selectedRatePlan=394881143&searchId=49c6b0a2-069e-4f9b-8fa6-e0e99223ac51&propertyName=St+Giles+Hotel+-+London&siteid=12&langid=2058&clickref=1011lyL7Z8Kd&affcid=MX.DIRECT.PHG.1100l357437.1101l87520&ref_id=1011lyL7Z8Kd&my_ad=AFF.MX.DIRECT.PHG.1100l357437.1101l87520&afflid=1011lyL7Z8Kd" target="_blank">
+                    <button class="rounded-full w-full border-[1px] border-[#00000088] py-2 px-10 font-semibold hover:bg-greenPrimary hover:border-none transition-all duration-200">
+                      Book now
+                    </button>
+                  </a>
+                </div>
+              </article>
+
+              <article class="h-[400px] lg:h-[500px] w-[280px]">
+                <div class="h-[40%]">
+                  <img class="h-full w-full object-cover" src="./assets/Desktop/DESTINATIONS-SUPPORT/hotel5.webp" alt="Broadwick Soho">
+                </div>
+                <div class="h-[50%] flex flex-col justify-center gap-4 px-3">
+                  <div class="flex gap-4 items-center">
+                    <span class="text-xs font-semibold">
+                      Official rating
+                    </span>
+                    <div class="flex gap-1 items-center">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                      <img class="w-4 object-contain" src="./assets/Desktop/DESTINATIONS-SUPPORT/star.webp" alt="Star">
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col gap-1">
+                    <h5 class="text-greenPrimary font-semibold text-xl">
+                      Broadwick Soho
+                    </h5>
+                    <p class="text-sm lg:text-base">
+                      Got it! The Broadwick Soho is a luxurious 
+                      Victorian-style hotel steps away from 
+                      Piccadilly Circus. 
+                    </p>
+                  </div>
+                </div>
+
+                <div class="h-[10%]">
+                  <a href="https://www.expedia.mx/London-Hoteles-Broadwick-Soho.h69638437.Informacion-Hotel?chkin=2024-07-04&chkout=2024-07-07&x_pwa=1&rfrr=HSR&pwa_ts=1720032253284&referrerUrl=aHR0cHM6Ly93d3cuZXhwZWRpYS5teC9Ib3RlbC1TZWFyY2g%3D&useRewards=true&rm1=a1&regionId=190&destination=Reino+Unido&destType=MARKET&neighborhoodId=6054504&selected=69638437&latLong=51.507322%2C-0.127647&hotelName=Broadwick+Soho&amenities=CASINO&sort=RECOMMENDED&userIntent=&searchId=645a1e91-d3de-41b2-bd70-d66046c30f35&propertyName=Broadwick+Soho&siteid=12&langid=2058&clickref=1101lzwcNRif&affcid=MX.DIRECT.PHG.1100l357437.1101l87520&ref_id=1101lzwcNRif&my_ad=AFF.MX.DIRECT.PHG.1100l357437.1101l87520&afflid=1101lzwcNRif" target="_blank">
+                    <button class="rounded-full w-full border-[1px] border-[#00000088] py-2 px-10 font-semibold hover:bg-greenPrimary hover:border-none transition-all duration-200">
+                      Book now
+                    </button>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- ? Quote section -->
+        <section id="hotels-section" class="flex justify-center py-14">
+          <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:gap-2 sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+            <article class="flex flex-col gap-3">
+              <h2 class="font-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-6xl md:text-center">
+                Get a <span class="text-greenPrimary">Quote</span>
+              </h2>
+            </article>
+
+            <article class="bg-[url(./assets/Mobile/DESTINATIONS-SUPPORT/BannerQuote.webp)] md:bg-[url(./assets/Tablet/DESTINATIONS-SUPPORT/BannerQuote.webp)] lg:bg-[url(./assets/Desktop/DESTINATIONS-SUPPORT/BannerQuote.webp)] bg-cover bg-center bg-no-repeat rounded-2xl">
+              <div class="flex flex-col gap-10 justify-center p-10 py-20 md:py-32 lg:py-16 lg:px-16 w-full lg:flex-row">
+                <form id="quote-form" class="flex flex-col gap-2 w-full lg:w-6/12 lg:py-20">
+                  <div class="flex flex-col gap-2">
+                    <label class="font-semibold text-lg text-white">Number of People</label>
+                    <select name="guests-quote" id="" class="rounded-lg p-2">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
+                  </div>
+  
+                  <div class="flex flex-col gap-2">
+                    <label class="font-semibold text-lg text-white">Hotel</label>
+                    <select name="hotel-quote" id="" class="rounded-lg p-2">
+                      <option value="Clermont Club">Clermont Club</option>
+                      <option value="Hippodrome Casino">Hippodrome Casino</option>
+                      <option value="Aspers Casino">Aspers Casino</option>
+                      <option value="Genting Casino">Genting Casino</option>
+                      <option value="ALEA Nottingham">ALEA Nottingham</option>
+                      <option value="Rainbow Casino">Rainbow Casino</option>
+                    </select>
+                  </div>
+  
+                  <div class="flex flex-col gap-2">
+                    <label class="font-semibold text-lg text-white">Name</label>
+                    <input type="text" id="name" name="name" class="rounded-lg p-2 outline-none" placeholder="Write your name">
+                  </div>
+  
+                  <div class="flex flex-col gap-2">
+                    <label class="font-semibold text-lg text-white">Last names</label>
+                    <input type="text" id="lastname" name="lastname" class="rounded-lg p-2 outline-none" placeholder="Write your last names">
+                  </div>
+  
+                  <div class="flex flex-col gap-2">
+                    <label class="font-semibold text-lg text-white">Email</label>
+                    <input type="email" id="email" name="email" class="rounded-lg p-2 outline-none" placeholder="Write your email">
+                  </div>
+  
+                  <div class="flex flex-col gap-2">
+                    <label class="font-semibold text-lg text-white">Phone</label>
+                    <input type="tel" id="phone" name="phone" class="rounded-lg p-2 outline-none" placeholder="Write your telephone">
+                  </div>
+  
+                  <div class="date-selection-container">
+                    <label class="font-semibold text-lg text-white">Dates</label>
+                    <div id="reservation-form" class="rounded-lg p-2 flex items-center justify-between bg-white">
+                      <label id="dates" for="daterange">Choose your dates</label>
+                      <button class="relative">
+                        <span class="relative">
+                          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJtMTIgMTVsLTQuMjQzLTQuMjQybDEuNDE1LTEuNDE0TDEyIDEyLjE3MmwyLjgyOC0yLjgyOGwxLjQxNSAxLjQxNHoiLz48L3N2Zz4=" alt="Arrow down">
+                        </span>
+                        <input type="text" id="daterange" name="daterange" class="w-5 absolute outline-none top-0 left-0 z-20 bg-transparent text-transparent" required>
+                      </button>
+                    </div>
+                  </div>
+  
+                  <div class="flex justify-start mt-4">
+                    <button class="bg-greenPrimary font-semibold rounded-lg py-2 px-12 hover:scale-95 transition-all duration-200" onclick="sendContactForm('quote-form')">
+                      Get <span class="hidden md:inline">estimated</span> cost
+                    </button>
+                  </div>
+                </form>
+  
+                <div class="lg:w-6/12 flex justify-center items-center">
+                  <p class="text-white italic lg:text-lg">
+                    Easily receive a personalized estimate by filling out the form below. Enter the number of persons, select your dates, and choose your preferred hotel. Provide your name and phone number for direct assistance from our expert sales agents. Start planning your perfect stay with ease and confidence!
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
         
-        <section id="home-section" class="flex justify-center">
+        <!-- ? Hotels section -->
+        <section id="hotels-section" class="flex justify-center py-14">
+          <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
+            <article class="flex flex-col gap-3">
+              <h2 class="font-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-6xl md:text-center">
+                Why <span class="text-greenPrimary">choose</span> us?
+              </h2>
+              <p class="font-medium text-xl md:text-2xl lg:text-3xl md:text-center">
+                Enhance your stay with exclusive Perks
+              </p>
+            </article>
+
+            <div class="flex flex-wrap justify-center gap-8 lg:gap-y-16">
+              <article class="bg-gradient-to-r from-[#25D366] to-[#0DAC48] rounded-2xl flex flex-col sm:flex-row sm:items-center w-[280px] md:w-[450px] lg:w-[400px] lg:h-[200px] gap-5 p-5">
+                <div class="flex justify-center">
+                  <img class="max-w-[80px] md:max-w-[100px]" src="./assets/Desktop/BENEFICIOS/illus1.webp" alt="Communication">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <h5 class="text-lg font-bold sm:text-xl">
+                    Direct hotel communication
+                  </h5>
+
+                  <p class="text-sm lg:text-base">
+                    We ensure fast and efficient responses by connecting you directly with key hotel contacts.
+                  </p>
+                </div>
+              </article>
+
+              <article class="bg-gradient-to-r from-[#25D366] to-[#0DAC48] rounded-2xl flex flex-col sm:flex-row sm:items-center w-[280px] md:w-[450px] lg:w-[400px] lg:h-[200px] gap-5 p-5">
+                <div class="flex justify-center">
+                  <img class="max-w-[80px] md:max-w-[100px]" src="./assets/Desktop/BENEFICIOS/illus2.webp" alt="Percent">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <h5 class="text-lg font-bold sm:text-xl">
+                    Special Rates
+                  </h5>
+
+                  <p class="text-sm lg:text-base">
+                    Benefit from exclusive pricing
+                  </p>
+                </div>
+              </article>
+
+              <article class="bg-gradient-to-r from-[#25D366] to-[#0DAC48] rounded-2xl flex flex-col sm:flex-row sm:items-center w-[280px] md:w-[450px] lg:w-[400px] lg:h-[200px] gap-5 p-5">
+                <div class="flex justify-center">
+                  <img class="max-w-[80px] md:max-w-[100px]" src="./assets/Desktop/BENEFICIOS/illus3.webp" alt="Comprehensive nformation">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <h5 class="text-lg font-bold sm:text-xl">
+                    Comprehensive Information
+                  </h5>
+
+                  <p class="text-sm lg:text-base">
+                    Detailed and updated hotel data
+                  </p>
+                </div>
+              </article>
+
+              <article class="bg-gradient-to-r from-[#25D366] to-[#0DAC48] rounded-2xl flex flex-col sm:flex-row sm:items-center w-[280px] md:w-[450px] lg:w-[400px] lg:h-[200px] gap-5 p-5">
+                <div class="flex justify-center">
+                  <img class="max-w-[80px] md:max-w-[100px]" src="./assets/Desktop/BENEFICIOS/illus4.webp" alt="Streamlined Booking">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <h5 class="text-lg font-bold sm:text-xl">
+                    Streamlined Booking
+                  </h5>
+
+                  <p class="text-sm lg:text-base">
+                    Quick and easy reservation process
+                  </p>
+                </div>
+              </article>
+
+              <article class="bg-gradient-to-r from-[#25D366] to-[#0DAC48] rounded-2xl flex flex-col sm:flex-row sm:items-center w-[280px] md:w-[450px] lg:w-[400px] lg:h-[200px] gap-5 p-5">
+                <div class="flex justify-center">
+                  <img class="max-w-[80px] md:max-w-[100px]" src="./assets/Desktop/BENEFICIOS/illus5.webp" alt="Assistance">
+                </div>
+
+                <div class="flex flex-col gap-2">
+                  <h5 class="text-lg font-bold sm:text-xl">
+                    Personalized Assistance
+                  </h5>
+
+                  <p class="text-sm lg:text-base">
+                    24/7 online services and customer support
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <article class="flex flex-col gap-3 bg-gradient-to-r from-[#25D366] to-[#0DAC48] rounded-2xl shadow-facts border-4 border-[#FFFFFFDD]">
+              <h2 class="font-extrabold text-4xl md:text-5xl lg:text-6xl xl:text-6xl md:text-center">
+                Why <span class="text-greenPrimary">choose</span> us?
+              </h2>
+              <p class="font-medium text-xl md:text-2xl lg:text-3xl md:text-center">
+                Enhance your stay with exclusive Perks
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- <section id="home-section" class="flex justify-center">
           <div class="flex flex-col px-4 sm:px-8 lg:px-10 gap-8 sm:gap-16 md:gap-10 lg:flex-row sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1400px]">
 
           </div>
-        </section>
+        </section> -->
     </main>
 
     <footer>
