@@ -66,3 +66,7 @@ section {
     -moz-box-shadow: -23px 21px 43px -17px rgba(0,0,0,0.28);
     box-shadow: -23px 21px 43px -17px rgba(0,0,0,0.28);
 }
+
+.shadow-opacity-image {
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
